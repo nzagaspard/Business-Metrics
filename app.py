@@ -1,6 +1,7 @@
 import streamlit as st
 from data_utils import get_sample_data, process_data
 from graph_utils import distribution_fig, nps_fig
+import pandas as pd
 
 st.set_page_config(page_title="Business Metrics",page_icon=":bar_chart:")
 
@@ -19,7 +20,7 @@ title = """<div style="background-color:#00A170;padding:1px">
 st.markdown(title, unsafe_allow_html=True)
 
 st.header('Overview')
-description = """Shows the percentage difference between the people who are likely to keep buying/using, promote, recommend or refer your products/services and those who may not. To get the data to measure this metric you can just ask your customers a question like:<br> **How likely are you to recommend us to your friends on a scale of 0 to 10?**"""
+description = """NPS shows the percentage difference between the people who are likely to keep using, promote, recommend or refer your products/services and those who may not. To get the data to measure this metric you can just ask your customers a question like:<br> **How likely are you to recommend us to your friends on a scale of 0 to 10?**"""
 st.write(description, unsafe_allow_html=True)
 
 
@@ -43,7 +44,7 @@ if demo_custom == 'Demo':
 else:
     custom_file = st.file_uploader('Upload your file', type = ['csv','xlsx'])
     if custom_file is not None:
-        data = pd.read_csv(customfile)
+        data = pd.read_csv(custom_file)
     else:
         data = None
     
