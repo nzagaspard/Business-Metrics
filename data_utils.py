@@ -23,3 +23,22 @@ def process_data(survey):
     nps = float(stats.loc['Promoters']  - stats.loc['Detractors'])
     
     return survey, stats, nps
+
+def read_file(file):
+    file_extension = file.name.split('.')[-1]
+    if file_extension in ['csv','txt']:
+        data = pd.read_table(file, sep = ',', dtype = str)
+    elif file_extension in ['xlsx', 'xls']:
+        data = pd.read_excel(file, sep = ',', dtype = str)
+    else:
+        data = None
+    
+    if data is not None:
+        number_of_columns = data.shape[1]
+        if number_of_columns == 1:
+            data.columns = ['Response']
+        elif number_of_columns == 2:
+            data.columns = ['CustId','Response']
+            data = data.set_index('CustId')
+    data['Response'] = data['Response'].astype(int)
+    return data

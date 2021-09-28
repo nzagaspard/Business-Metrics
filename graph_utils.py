@@ -20,16 +20,16 @@ def nps_fig(nps):
                            'thickness': 1, 'value': nps}},
         domain = {'x': [0, 1], 'y': [0, 1]}))
 
-    nps_fig.update_layout(title = dict(x=0.5, y = 0.9, yanchor = 'top', xanchor = 'center'),
+    nps_fig.update_layout(title = dict(x=0.5, y = 0.99, yanchor = 'top', xanchor = 'center'),
                       titlefont = {'family': 'Arial','size':16, 'color':'rgb(37,37,37)'},  
                       margin = {'l':5, 'r':5, 'b':20, 't':35}, paper_bgcolor='rgb(248, 248, 255)', 
-                      showlegend = False, height = 300, width = 500)
+                      showlegend = False, height = 300, width = 300)
 
     return nps_fig
 
-def distribution_fig(stats):
-    stats = stats.reset_index()
-    stats_fig = px.pie(stats, values= '%', names='index', hole = 0.4,
+def distribution_fig(data):
+    stats = data['Category'].value_counts().reset_index()
+    stats_fig = px.pie(stats, values= 'Category', names='index', hole = 0.4,
                     title = "Categories Distribution", color = 'index',
                     color_discrete_map = {'Promoters':'forestgreen', 'Detractors':'red','Passives':'yellow'})
     
