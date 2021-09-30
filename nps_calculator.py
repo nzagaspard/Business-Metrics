@@ -23,7 +23,7 @@ def nps():
     st.markdown(summary)
     formula = """<h3 style="color:#D2386C;text-align:center;"><strong>NPS = % Promoters - % Detractors </strong></h3>"""
     st.markdown(formula, unsafe_allow_html=True)
-
+    st.markdown('---')
     st.header('Calculation')
 
     demo_custom = st.radio('Choose My file to upload your custom file',['Demo','My file'])
@@ -64,7 +64,7 @@ def nps():
 
         stats_figure.plotly_chart(distribution_fig(processed_data))
         nps_figure.plotly_chart(nps_fig(nps), use_container_width=True)
-
+        st.markdown('---')
         st.header('Interpretation')
 
         st.write("""The NPS can be a -100% if all customers are Detractors and 100% if all customers are Promoters. 
