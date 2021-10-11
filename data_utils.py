@@ -42,3 +42,13 @@ def read_file(file):
             data = data.set_index('CustId')
     data['Response'] = data['Response'].astype(int)
     return data
+
+def calculate_crr(bc, nc, ec):
+    
+    if int(ec) > (int(bc) + int(nc)): 
+        return 'Not possible'
+    
+    else:
+        crr = ((int(ec) - int(nc))/int(bc)) * 100
+        return crr
+ 
