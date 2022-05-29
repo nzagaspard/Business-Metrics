@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_option_menu import option_menu
 from nps_calculator import nps
 from customer_loyality_retention import clr
 from churn_rate import churn_rate
@@ -14,13 +15,24 @@ hide_st_style = """
 """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-st.sidebar.title('Applications')
-apps = st.sidebar.selectbox('Choose the application', ['Net Promoter Score Calculator', 'Customer Loyality Retention', 
-                                                       'Churn Rate Analysis & Prediction'])
-
-if apps == 'Net Promoter Score Calculator':
+# st.sidebar.title('Applications')
+# apps = st.sidebar.selectbox('Choose the application', ['Net Promoter Score Calculator', 'Customer Loyality Retention', 
+#                                                        'Churn Rate Analysis & Prediction'])
+app_choices = ['Net Promoter Score', 'Customer Loyality Retention', 'In Pipeline']
+with st.sidebar:
+    apps = option_menu("App Gallery", app_choices,
+                         icons=['bookmark-heart', 'sort-numeric-down', 'bar-chart-steps'],
+                         menu_icon="app-indicator", default_index=0,
+                         styles={
+        "container": {"padding": "5!important", "background-color": "#fafafa"},
+        "icon": {"color": "orange", "font-size": "25px"}, 
+        "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+        "nav-link-selected": {"background-color": "#02ab21"},
+    }
+    )
+if apps == app_choices[0]:
     nps()
-elif apps == 'Customer Loyality Retention':
+elif apps == app_choices[1]:
     clr()
-elif apps == 'Churn Rate Analysis & Prediction':
+elif apps == app_choices[2]:
     churn_rate()

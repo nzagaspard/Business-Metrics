@@ -1,5 +1,9 @@
 import streamlit as st
 
 def churn_rate():
-    st.title('Churn Rate Analysis & Prediction')
-    st.write('Coming soon, stay tuned...')
+    st.title('Coming soon, stay tuned...')
+    st.markdown("""
+                   1. Churn Rate Analysis & Prediction
+                   2. Cohort Analysis
+                   3. ...
+                """)

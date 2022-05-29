@@ -69,11 +69,13 @@ def nps():
 
         st.write("""The NPS can be a -100% if all customers are Detractors and 100% if all customers are Promoters. 
     According to [Relently](https://www.retently.com/blog/good-net-promoter-score/) the NPS can be interpreted as follows:""")
-        results_summary ="""|Score|Description|
+        results_summary ="""
+                            |Score|Description|
                             |:---| :----|
                             |-100 - 0|Need improvement|
                             |0 - 30|Good|
                             |30 - 70|Great|
-                            |70 - 100| Excellent|"""
+                            |70 - 100| Excellent|
+                         """
         st.write(results_summary, unsafe_allow_html=True)
         st.write("""**People should also consider looking the average NPS of their industry to see if they are doing better than the average of the industry.**""")
