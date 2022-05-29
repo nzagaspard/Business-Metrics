@@ -1,8 +1,6 @@
 streamlit==0.89.0
-
+numpy==1.20.1
 plotly==4.14.3
-
+pandas==1.2.5
 plotly-express==0.4.1
-
-
 streamlit-option-menu==0.3.2
