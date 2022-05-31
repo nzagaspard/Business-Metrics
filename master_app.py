@@ -19,6 +19,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 # apps = st.sidebar.selectbox('Choose the application', ['Net Promoter Score Calculator', 'Customer Loyality Retention', 
 #                                                        'Churn Rate Analysis & Prediction'])
 app_choices = ['Net Promoter Score', 'Customer Loyality Retention', 'In Pipeline']
+
 with st.sidebar:
     apps = option_menu("App Gallery", app_choices,
                          icons=['bookmark-heart', 'sort-numeric-down', 'bar-chart-steps'],

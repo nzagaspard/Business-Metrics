@@ -53,7 +53,7 @@ def clr():
                       number of new customers."""
     
     rate_analysis = """
-            |Rate (%)| Description|
+            |Rate (%)|Description|
             |:---| :----|
             |Less than 0|You lose some new and old customers|
             |0 to 99|You don't retain a portio of old and new customers|
