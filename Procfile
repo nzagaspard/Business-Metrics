@@ -1,1 +1,1 @@
-web sh setup.sh && streamlit run rwandacovidtracker.py
+web sh setup.sh && streamlit run master_app.py
