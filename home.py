@@ -8,9 +8,9 @@ def home():
     
     st.markdown('<br>', unsafe_allow_html=True)
     
-    st.markdown("""<p style="text-align: justify;"> A one stop center application for business metrics insights and calculators. Even though it is still in development some of its applications are live. It will feature metrics such as Net Promoter Score, Churn Rate, Cohort Analytics, Customers Loyalty & Retention among others. </p>""", unsafe_allow_html=True)
+    st.markdown("""<h6 style="text-align: justify;"> A one stop center application for business metrics insights and calculators. Even though it is still in development some of its applications are live. It will feature metrics such as Net Promoter Score, Churn Rate, Cohort Analytics, Customers Loyalty & Retention among others. </h6>""", unsafe_allow_html=True)
     
-#     st.markdown("""<br> <h5 style="text-align:justify;">A one stop center application for business metrics insights and calculators. Even though it is still in development some of its applications are live. It will feature metrics such as Net Promoter Score, Churn Rate, Cohort Analytics, Customers Loyalty & Retention among others.</h5> <br> 👈 On the left you can navigate to a desired app.""", unsafe_allow_html=True)
+    st.markdown("""👈 On the left you can navigate to a desired app.""", unsafe_allow_html=True)
     
     st.markdown("#### Contact/Connect/Follow me")
     
