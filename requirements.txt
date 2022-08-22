@@ -8,4 +8,4 @@ streamlit-option-menu==0.3.2
 
 protobuf==3.20.1
 
-sklearn==1.0.0
+scikit-learn>=0.14.1
