@@ -45,51 +45,51 @@ def churn_predictor():
 
             else:
 
-                try:
-                    credit_score = int(credit_score.strip())
-                    age = int(age.strip())
-                    balance = int(balance.strip())
-                    products = int(products.strip())
-                    ingermany = 1 if country == 'Germany' else 0
-                    isfemale = 1 if gender == 'Female' else 0
-                    isactive = 1 if active else 0
-                    low_score = 1 if credit_score <= 500 else 0
-                    isold =  1 if age > 40 else 0
-                    low_balance = 1 if balance <= 75_000 else 0
-                    prod1 = 1 if products == 1 else 0
-                    prod2 = 1 if products == 2 else 0
-                    prod3 = 1 if products >= 3 else 0
+#                 try:
+                credit_score = int(credit_score.strip())
+                age = int(age.strip())
+                balance = int(balance.strip())
+                products = int(products.strip())
+                ingermany = 1 if country == 'Germany' else 0
+                isfemale = 1 if gender == 'Female' else 0
+                isactive = 1 if active else 0
+                low_score = 1 if credit_score <= 500 else 0
+                isold =  1 if age > 40 else 0
+                low_balance = 1 if balance <= 75_000 else 0
+                prod1 = 1 if products == 1 else 0
+                prod2 = 1 if products == 2 else 0
+                prod3 = 1 if products >= 3 else 0
 
-                    inputs = [ingermany, isfemale, isactive, low_score, isold, low_balance, prod1, prod2, prod3]
-                    column_names = ['IsInGermany', 'IsFemale', 'IsActiveMember', 'IsCreditScoreLow',
-                                    'IsOld', 'IsBalanceLow', 'NumOfProducts_1', 'NumOfProducts_2', 'NumOfProducts_3']
+                inputs = [ingermany, isfemale, isactive, low_score, isold, low_balance, prod1, prod2, prod3]
+                column_names = ['IsInGermany', 'IsFemale', 'IsActiveMember', 'IsCreditScoreLow',
+                                'IsOld', 'IsBalanceLow', 'NumOfProducts_1', 'NumOfProducts_2', 'NumOfProducts_3+']
 
-                    df = pd.DataFrame(np.array(inputs)).T
-                    df.columns = column_names
+                df = pd.DataFrame(np.array(inputs)).T
+                df.columns = column_names
 
-                    with st.spinner('Predicting. Please wait...'):
+                with st.spinner('Predicting. Please wait...'):
 
-                        prediction, probabilities = predict_churn(df)
+                    prediction, probabilities = predict_churn(df)
 
-                        churning_probability = int(probabilities[0][1]*100)
-                        non_churning_probability = int(probabilities[0][0]*100)
+                    churning_probability = int(probabilities[0][1]*100)
+                    non_churning_probability = int(probabilities[0][0]*100)
 
-                        formatted_probabilities = f"""<h5 style="color:#0D4493;text-align:center;"><strong>
-                                                      Churning Probability: {churning_probability}%<br>
-                                                      Not Churning Probability: {non_churning_probability}%
-                                                      </strong></h5>"""
+                    formatted_probabilities = f"""<h5 style="color:#0D4493;text-align:center;"><strong>
+                                                  Churning Probability: {churning_probability}%<br>
+                                                  Not Churning Probability: {non_churning_probability}%
+                                                  </strong></h5>"""
 
-                        formatted_class = f"""<h2 style="color:red;text-align:center;"><strong>
-                                                      Overall Prediction: Churning</strong></h2>""" if prediction == 1 \
-                                          else f"""<h2 style="color:green;text-align:center;"><strong>
-                                                      Overall Prediction: Not Churning</strong></h2>"""
+                    formatted_class = f"""<h2 style="color:red;text-align:center;"><strong>
+                                                  Overall Prediction: Churning</strong></h2>""" if prediction == 1 \
+                                      else f"""<h2 style="color:green;text-align:center;"><strong>
+                                                  Overall Prediction: Not Churning</strong></h2>"""
 
-                        st.markdown(formatted_probabilities, unsafe_allow_html = True)                  
-                        st.markdown(formatted_class, unsafe_allow_html = True)
+                    st.markdown(formatted_probabilities, unsafe_allow_html = True)                  
+                    st.markdown(formatted_class, unsafe_allow_html = True)
 
-                except Exception as e:               
-                    st.error(e)
-                    st.error('###### One of the the expected inputs that should be numbers are not a valid number.')
+#                 except Exception as e:               
+# #                     st.error(e)
+#                     st.error('###### One of the the expected inputs that should be numbers are not a valid number.')
     st.write('#')
     disclaimer = st.expander('Details & Disclaimer!')
     disclaimer.markdown("""⚠️ This project was developed for practice/testing purposes. Should not totally be considered for actual informed decisions!""")
