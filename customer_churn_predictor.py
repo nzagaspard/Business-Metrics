@@ -88,7 +88,7 @@ def churn_predictor():
                         st.markdown(formatted_class, unsafe_allow_html = True)
 
                 except Exception as e:               
-    #                 st.error(e)
+                    st.error(e)
                     st.error('###### One of the the expected inputs that should be numbers are not a valid number.')
     st.write('#')
     disclaimer = st.expander('Details & Disclaimer!')
