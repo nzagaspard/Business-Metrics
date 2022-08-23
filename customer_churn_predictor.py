@@ -71,8 +71,8 @@ def churn_predictor():
 
                         prediction, probabilities = predict_churn(df)
 
-                        churning_probability = int(probabilities[0][1]*100)
-                        non_churning_probability = int(probabilities[0][0]*100)
+                        churning_probability = round(probabilities[0][1]*100,2)
+                        non_churning_probability = round(probabilities[0][0]*100,2)
 
                         formatted_probabilities = f"""<h5 style="color:#0D4493;text-align:center;"><strong>
                                                       Churning Probability: {churning_probability}%<br>
