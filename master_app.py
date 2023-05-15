@@ -6,7 +6,7 @@ from pipeline import pipeline
 from customer_churn_predictor import churn_predictor
 from home import home
 
-st.set_page_config(page_title="Business Metrics",page_icon=":bar_chart:")
+st.set_page_config(page_title="Business Metrics",page_icon=":chart_increasing:")
 
 #Application
 hide_st_style = """
