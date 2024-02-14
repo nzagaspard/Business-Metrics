@@ -1,5 +1,6 @@
 import plotly.express as px
 import plotly.graph_objects as go
+import streamlit as st
 
 def nps_fig(nps):
     positive = [{'range': [0, 30], 'color': '#99ff99'},
@@ -29,7 +30,8 @@ def nps_fig(nps):
 
 def distribution_fig(data):
     stats = data['Category'].value_counts().reset_index()
-    stats_fig = px.pie(stats, values= 'Category', names='index', hole = 0.4,
+    st.write(stats)
+    stats_fig = px.pie(stats, values= 'Category', names=stats.index, hole = 0.4,
                     title = "Categories Distribution", color = 'index',
                     color_discrete_map = {'Promoters':'forestgreen', 'Detractors':'red','Passives':'yellow'})
     
