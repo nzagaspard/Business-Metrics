@@ -30,7 +30,7 @@ def nps_fig(nps):
 
 def distribution_fig(data):
     stats = data['Category'].value_counts().reset_index()
-    st.write(stats)
+    # st.write(stats)
     stats_fig = px.pie(stats, values= 'count', names='Category', hole = 0.4,
                     title = "Categories Distribution", color = 'Category',
                     color_discrete_map = {'Promoters':'forestgreen', 'Detractors':'red','Passives':'yellow'})
