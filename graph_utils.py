@@ -31,8 +31,8 @@ def nps_fig(nps):
 def distribution_fig(data):
     stats = data['Category'].value_counts().reset_index()
     st.write(stats)
-    stats_fig = px.pie(stats, values= 'Category', names=stats.index, hole = 0.4,
-                    title = "Categories Distribution", color = 'index',
+    stats_fig = px.pie(stats, values= 'count', names='Category', hole = 0.4,
+                    title = "Categories Distribution", color = 'Category',
                     color_discrete_map = {'Promoters':'forestgreen', 'Detractors':'red','Passives':'yellow'})
     
     stats_fig.update_traces(textposition='inside',texttemplate = "%{label} <br> %{percent:.2%f}", hovertemplate='<b>%{label} </b> <br> Number of People: %{value:,}<br> Percentage: %{percent:.2%f}')
